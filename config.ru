@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
-require File.expand_path('config/environment', __dir__)
+require './config/loader'
+require 'rack/cors'
 
-run Twitty::TwittyApp.new
+use Rack::Cors do
+  allow do
+    origins 'localhost'
+    resource '*', headers: :any, methods: [:get, :post, :put, :delete]
+  end
+end
+
+run TwittyAPI.new

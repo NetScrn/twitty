@@ -5,9 +5,16 @@ source 'http://rubygems.org'
 ruby '2.5.3'
 
 gem 'grape'
-gem 'json'
-gem 'pg'
+gem 'grape-entity'
 gem 'rack-cors'
-gem 'rake'
-gem 'sequel'
+
 gem 'dotenv'
+gem 'pg'
+gem 'rake'
+gem 'require_all'
+gem 'sequel'
+
+group :development, :test do
+  gem 'pry'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+end

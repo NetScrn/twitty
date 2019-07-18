@@ -1,9 +1,7 @@
-module Twitty
-  class TwittyApp < Grape::API
-    format :json
+class TwittyAPI < Grape::API
+  format :json
 
-    get :index do
-      {test: 'data'}
-    end
+  get :index do
+    User.all.map(&:values)
   end
 end
